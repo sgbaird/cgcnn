@@ -248,7 +248,7 @@ def train(train_loader, model, criterion, optimizer, epoch, normalizer):
             target_var = Variable(target_normed)
 
         # compute output
-        output = model(*input_var)
+        output, crys_fea = model(*input_var)
         loss = criterion(output, target_var)
 
         # measure accuracy and record loss
@@ -347,7 +347,7 @@ def validate(val_loader, model, criterion, normalizer, test=False):
                 target_var = Variable(target_normed)
 
         # compute output
-        output = model(*input_var)
+        output, crys_fea = model(*input_var)
         loss = criterion(output, target_var)
 
         # measure accuracy and record loss
